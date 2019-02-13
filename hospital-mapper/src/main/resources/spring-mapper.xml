@@ -37,10 +37,12 @@
         <property name="dataSource" ref="dataSource" />
         <!-- 加载mybatis的全局配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath*:mapper/*.xml" />
     </bean>
     <!-- Mapper映射文件的包扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hospital.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- 事务管理器 -->
     <bean id="transactionManager"
