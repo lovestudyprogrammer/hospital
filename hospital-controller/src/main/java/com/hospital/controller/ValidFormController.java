@@ -63,4 +63,9 @@ public class ValidFormController {
 
         return output;
     }
+
+    /*@RequestMapping("/DoRegister")
+    public void register(User user){
+
+    }*/
 }
