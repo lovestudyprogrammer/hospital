@@ -826,15 +826,14 @@
                     <div class="item vCode"><label for="tbCode"><img src="images/ico_63.gif" alt="" width="8"
                                                                      height="8"/>验证码</label><input name="tbCode"
                                                                                                    type="text"
-                                                                                                   maxlength="3"
+                                                                                                   maxlength="4"
                                                                                                    id="tbCode"
-                                                                                                   datatype="zh2-2"
+                                                                                                   datatype="*"
                                                                                                    autocomplete="off"
                                                                                                    nullmsg="请输入验证码！"
                                                                                                    errormsg="验证码2个汉字"/><img
-                            src="IMGChinese/" id="IMGCheckcode" class="IMGCheckcode"
-                            onclick="this.src='IMGChinese/?'+Math.random()" alt=""/><a href="javascript:;"
-                                                                                       id="AChangeCode">换一换</a>
+                            src="" id="IMGCheckcode" class="IMGCheckcode"
+                            onclick="checkcode()" alt=""/><a href="javascript:;" id="AChangeCode">换一换</a>
                         <div class="Validform_checktip"></div>
                     </div>
                     <div class="item btn"><input type="submit" name="btnRegister" value="提交" id="btnRegister"
@@ -947,5 +946,28 @@
 <script type="text/javascript" src="js/Kunyi.Common.js"></script>
 <script type="text/javascript" src="js/Kunyi.Secondary.js"></script>
 <script type="text/javascript" src="js/Kunyi.Reg.js"></script>
+<script type="text/javascript">
+    $(function() {
+        checkcode();
+    });
+    function checkcode() {
+        var XMLHttp = null;
+        if (window.XMLHttpRequest) {
+            XMLHttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            XMLHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        XMLHttp.onreadystatechange = function() {
+            if (XMLHttp.readyState == 4) {
+                //改变验证码图片
+                $("#IMGCheckcode").attr("src",("/yanZhen/getImage?" + new Date()));
+            }
+        };
+        //将请求发送出去
+        //加上 new Date()防止浏览器缓存，不重新发送请求
+        XMLHttp.open("GET", "/yanZhen/getImage?" + new Date(), true);
+        XMLHttp.send(null);
+    }
+</script>
 </body>
 </html>
