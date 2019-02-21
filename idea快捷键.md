@@ -39,3 +39,5 @@ alt+enter：智能提示补全代码
 格式化代码：ctrl+alt+L
 
 自动补全函数返回值：ctrl+alt+v
+
+查找接口实现：ctrl+alt+B
