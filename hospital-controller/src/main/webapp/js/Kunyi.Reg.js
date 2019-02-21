@@ -56,10 +56,10 @@ $(function(){
 			if(data.status=="y"){
 				Kunyi.Msg.ShowTipsMsg("注册成功！","1888","1");
 				window.setTimeout(function(){
-					window.top.document.location.href ="login.html";
+					window.top.document.location.href ="Login.html";
 				},2188);
 			}else{
-				$("#tbHashReg").val(data.hash);
+				//$("#tbHashReg").val(data.hash);
 				Kunyi.Msg.ShowTipsMsg(data.info,"1888","2");
 				$("#btnRegister").removeAttr("disabled");
 			}

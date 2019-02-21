@@ -57,18 +57,14 @@ $(function(){
 			$("#btnLogin").val("登录");
 			$("#Validform_msg").hide();
 			if(data.status=="y"){
-				    if(data.info=="true"){
 						var URL=Kunyi.GetQueryString("redirectURL");
 						if(URL !=null && URL.toString().length>1&&URL.indexOf("http")<0){
 							window.top.document.location.href=URL;
 						}else{
 				        window.top.document.location.href ="ChooseOffice.html";
 						}
-					}else{
-					window.top.document.location.href ="BindPhone.html";
-					}
 			}else{
-				$("#tbHashReg").val(data.hash);
+				//$("#tbHashReg").val(data.hash);
 				Kunyi.Msg.ShowTipsMsg(data.info,"1888","2");
 				$("#btnLogin").removeAttr("disabled");
 			}
