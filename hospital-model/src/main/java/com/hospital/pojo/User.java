@@ -1,39 +1,49 @@
 package com.hospital.pojo;
 
 public class User {
-    private String id;
-    private String name;
-    private String password;
+    private String tbId;
+    private String tbName;
+    private String tbPassword;
+    private String tbDPassword;
     private Integer roleId;
-    private String cardNumber;
-    private String tName;
-    private String sex;
-    private String phone;
+    private String tbCardID;
+    private Integer ddlSex;
+    private String tbPhone;
     private Integer age;
-    private String email;
+    private String tbEmail;
+    private String tName;
+    private String tbCode;
 
-    public String getId() {
-        return id;
+    public String getTbId() {
+        return tbId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTbId(String tbId) {
+        this.tbId = tbId;
     }
 
-    public String getName() {
-        return name;
+    public String getTbName() {
+        return tbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTbPassword() {
+        return tbPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTbPassword(String tbPassword) {
+        this.tbPassword = tbPassword;
+    }
+
+    public String getTbDPassword() {
+        return tbDPassword;
+    }
+
+    public void setTbDPassword(String tbDPassword) {
+        this.tbDPassword = tbDPassword;
     }
 
     public Integer getRoleId() {
@@ -44,36 +54,28 @@ public class User {
         this.roleId = roleId;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
+    public String getTbCardID() {
+        return tbCardID;
     }
 
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setTbCardID(String tbCardID) {
+        this.tbCardID = tbCardID;
     }
 
-    public String gettName() {
-        return tName;
+    public Integer getDdlSex() {
+        return ddlSex;
     }
 
-    public void settName(String tName) {
-        this.tName = tName;
+    public void setDdlSex(Integer ddlSex) {
+        this.ddlSex = ddlSex;
     }
 
-    public String getSex() {
-        return sex;
+    public String getTbPhone() {
+        return tbPhone;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTbPhone(String tbPhone) {
+        this.tbPhone = tbPhone;
     }
 
     public Integer getAge() {
@@ -84,11 +86,27 @@ public class User {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTbEmail() {
+        return tbEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTbEmail(String tbEmail) {
+        this.tbEmail = tbEmail;
+    }
+
+    public String gettName() {
+        return tName;
+    }
+
+    public void settName(String tName) {
+        this.tName = tName;
+    }
+
+    public String getTbCode() {
+        return tbCode;
+    }
+
+    public void setTbCode(String tbCode) {
+        this.tbCode = tbCode;
     }
 }
