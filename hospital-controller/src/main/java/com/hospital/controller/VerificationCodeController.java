@@ -1,8 +1,14 @@
 package com.hospital.controller;
 
+import com.hospital.pojo.User;
+import com.hospital.service.IValidFormService;
+import com.hospital.utils.ConstCommons;
 import com.hospital.utils.ImageCode;
+import com.hospital.utils.OutputCommons;
+import com.hospital.utils.ParamType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -12,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "/yanZhen")
+@RequestMapping(value = "/Validation")
 public class VerificationCodeController {
     /*
      * @Resource默认按 byName 自动注入,是J2EE提供的， 需导入Package: javax.annotation.Resource;
@@ -24,23 +30,59 @@ public class VerificationCodeController {
     @Resource
     private ImageCode imageCode;
 
+    @Resource
+    private IValidFormService validFormService;
+
     private static String sRand;
 
-    @RequestMapping(value = "/openLoginPage")
-    public String openLoginPage(HttpServletRequest request, HttpServletResponse response) {
-        String msg = request.getParameter("msg");
-        if (msg == null && msg.isEmpty()) {
-            //得到用户读入框信息，如果没有输入或者为空，直接跳转到验证失败页面
-            return "error";
-        } else {
-            if (sRand.equalsIgnoreCase((msg))) {
-                //得到用户输入的验证码匹配成功，跳转到验证通过页面
-                return "ok";
+    @RequestMapping(value = "/DoRegister")
+    @ResponseBody
+    public OutputCommons openLoginPage(User user) throws Exception {
+        OutputCommons output = new OutputCommons();
+        if(user.getTbPassword().equals(user.getTbDPassword())) {
+            if (sRand.equalsIgnoreCase(user.getTbCode())) {
+                int suc = validFormService.userRegister(user);
+                if(suc == 1){
+                output.setStatus(ConstCommons.SUCCESS);
+                output.setInfo("");
+                return output;
+                }
+                output.setStatus(ConstCommons.ERROR);
+                output.setInfo("注册失败");
+                return output;
             } else {
-                //得到用户输入的验证码匹配失败，跳转到验证失败页面
-                return "error";
+                //校验验证码是否正确
+                output.setStatus(ConstCommons.ERROR);
+                output.setInfo(ParamType.CODE.getMsg());
+                return output;
             }
+        }else {
+            //密码校验不通过，两次不一致
+            output.setStatus(ConstCommons.ERROR);
+            output.setInfo(ParamType.PASSWORD.getMsg());
+            return output;
         }
+    }
+
+    @RequestMapping("/DoLogin")
+    @ResponseBody
+    public OutputCommons login(User user) throws Exception {
+        OutputCommons output = new OutputCommons();
+        if(sRand.equalsIgnoreCase(user.getTbCode())){
+            User checkUser = validFormService.userLogin(user);
+            if(checkUser != null){
+                output.setStatus(ConstCommons.SUCCESS);
+                output.setInfo("");
+                return output;
+            }
+            output.setStatus(ConstCommons.ERROR);
+            output.setInfo("登录失败");
+            return output;
+        }
+        //校验验证码是否正确
+        output.setStatus(ConstCommons.ERROR);
+        output.setInfo(ParamType.CODE.getMsg());
+        return output;
     }
 
     @RequestMapping(value = "/getImage")
