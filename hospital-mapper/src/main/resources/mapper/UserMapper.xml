@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hospital.mapper.UserMapper">
     <sql id="columnsSql">
-        ID,
-        NAME,
-        CARDNUMBER,
-        SEX,
-        PHONE,
-        AGE,
-        EMAIL
+        tbId,
+        tbName,
+        tbCardID,
+        ddlSex,
+        tbPhone,
+        age,
+        tbEmail
     </sql>
     <sql id="whereSql">
         <where>
@@ -19,7 +19,69 @@
         select
         <include refid="columnsSql"/>
         from user
-        where phone=#{pNumber} or cardNumber=#{cNumber} or email=#{email}
+        where tbPhone=#{pNumber} or tbCardID=#{cNumber} or tbEmail=#{email}
     </select>
+
+    <select id="selectById" parameterType="java.lang.String" resultType="com.hospital.pojo.User">
+        select
+        <include refid="columnsSql"/>
+        from user where tbId=#{tbId}
+    </select>
+
+    <select id="selectByCardIdAndPassword" parameterType="string" resultType="com.hospital.pojo.User">
+        select
+        <include refid="columnsSql"/>
+        from user where tbCardID=#{cardId} and tbPassword=#{password}
+    </select>
+
+    <insert id="insert">
+        insert into user(
+        tbId
+        <if test="vo.tbName != null">
+            ,tbName
+        </if>
+        <if test="vo.tbPassword != null">
+            ,tbPassword
+        </if>
+        <if test="vo.tbCardID != null">
+            ,tbCardID
+        </if>
+        <if test="vo.ddlSex != null">
+            ,ddlSex
+        </if>
+        <if test="vo.tbPhone != null">
+            ,tbPhone
+        </if>
+        <if test="vo.age != null">
+            ,age
+        </if>
+        <if test="vo.tbEmail != null">
+            ,tbEmail
+        </if>
+        ) values (
+        #{vo.tbId}
+        <if test="vo.tbName != null">
+            ,#{vo.tbName}
+        </if>
+        <if test="vo.tbPassword != null">
+            ,#{vo.tbPassword}
+        </if>
+        <if test="vo.tbCardID != null">
+            ,#{vo.tbCardID}
+        </if>
+        <if test="vo.ddlSex != null">
+            ,#{vo.ddlSex}
+        </if>
+        <if test="vo.tbPhone != null">
+            ,#{vo.tbPhone}
+        </if>
+        <if test="vo.age != null">
+            ,#{vo.age}
+        </if>
+        <if test="vo.tbEmail != null">
+            ,#{vo.tbEmail}
+        </if>
+        )
+    </insert>
 
 </mapper>
