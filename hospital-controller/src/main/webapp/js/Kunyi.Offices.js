@@ -1,16 +1,18 @@
-Kunyi.Offices = $.ajax({
+$(function () {
+    $.ajax({
         type:"POST",
         url:"Offices/Department",
         dataType:"JSON",
         async:false,
         success:function(data){
             alert("成功")
-            return data;
+            Kunyi.Offices = data;
         },
         error:function(){
             alert("失败")
         }
     });
+})
 
 /*Kunyi.Offices = [{
     DepID: 16,
