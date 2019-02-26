@@ -1,33 +1,38 @@
 package com.hospital.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.List;
 
 public class OfficesPOJO {
-    private String DepID;
-    private String DepName;
-    private List<Department> Offices;
+    @JSONField(name = "DepID")
+    private String depID;
+    @JSONField(name = "DepName")
+    private String depName;
+    @JSONField(name = "Offices")
+    private List<Department> offices;
 
     public String getDepID() {
-        return DepID;
+        return depID;
     }
 
     public void setDepID(String depID) {
-        DepID = depID;
+        this.depID = depID;
     }
 
     public String getDepName() {
-        return DepName;
+        return depName;
     }
 
     public void setDepName(String depName) {
-        DepName = depName;
+        this.depName = depName;
     }
 
     public List<Department> getOffices() {
-        return Offices;
+        return offices;
     }
 
     public void setOffices(List<Department> offices) {
-        Offices = offices;
+        this.offices = offices;
     }
 }

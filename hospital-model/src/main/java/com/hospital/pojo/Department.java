@@ -1,10 +1,16 @@
 package com.hospital.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class Department {
+    @JSONField(name = "OID")
     private Integer OID;
+    @JSONField(name = "OName")
     private String OName;
+    @JSONField(name = "detail")
     private String detail;
-    private String DepID;
+    @JSONField(name = "DepID")
+    private String depID;
 
     public Integer getOID() {
         return OID;
@@ -31,10 +37,11 @@ public class Department {
     }
 
     public String getDepID() {
-        return DepID;
+        return depID;
     }
 
     public void setDepID(String depID) {
-        DepID = depID;
+        this.depID = depID;
     }
 }
+
