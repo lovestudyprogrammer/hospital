@@ -21,8 +21,18 @@ public class DepartmentController {
     @ResponseBody
     public String department(){
         List<OfficesPOJO> offices = departmentService.getOffices();
-        String s = JSON.toJSONString(offices);
-        System.out.println(s);
-        return s;
+        return JSON.toJSONString(offices);
     }
+
+    /*@RequestMapping("/Doctors")
+    @ResponseBody
+    public String doctors(){
+        HashMap<String, List<Doctor>> doctors = departmentService.getDoctors();
+        String s = JSON.toJSONString(doctors);
+        System.out.println(s);
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(doctors);
+        System.out.println(jsonArray);
+        return s;
+    }*/
 }
