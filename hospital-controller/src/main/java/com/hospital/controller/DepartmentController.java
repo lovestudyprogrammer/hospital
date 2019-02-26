@@ -1,6 +1,7 @@
 package com.hospital.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.hospital.pojo.DoctorsPOJO;
 import com.hospital.pojo.OfficesPOJO;
 import com.hospital.service.IDepartmentService;
 import org.springframework.stereotype.Controller;
@@ -24,15 +25,10 @@ public class DepartmentController {
         return JSON.toJSONString(offices);
     }
 
-    /*@RequestMapping("/Doctors")
+    @RequestMapping("/Doctors")
     @ResponseBody
     public String doctors(){
-        HashMap<String, List<Doctor>> doctors = departmentService.getDoctors();
-        String s = JSON.toJSONString(doctors);
-        System.out.println(s);
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.add(doctors);
-        System.out.println(jsonArray);
-        return s;
-    }*/
+        List<DoctorsPOJO> doctorsPOJOList = departmentService.getDoctors();
+        return JSON.toJSONString(doctorsPOJOList);
+    }
 }
