@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hospital.mapper.DoctorMapper">
+    <resultMap id="DoctorResultMap" type="com.hospital.pojo.Doctor">
+        <id column="dId" jdbcType="INTEGER" property="DId"/>
+        <result column="dName" jdbcType="VARCHAR" property="DName"/>
+        <result column="dImage" jdbcType="VARCHAR" property="DImage"/>
+        <result column="oId" jdbcType="INTEGER" property="OId"/>
+        <result column="oName" jdbcType="VARCHAR" property="OName"/>
+        <result column="position" jdbcType="VARCHAR" property="position"/>
+    </resultMap>
+    <select id="selectAll" resultMap="DoctorResultMap">
+        select d.dId,d.dName,d.dImage,d.oId,d.position,k.oName
+        from doctor d,
+             keshi k
+        where d.oId = k.oId
+    </select>
+
+</mapper>
