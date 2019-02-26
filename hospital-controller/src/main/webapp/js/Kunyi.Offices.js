@@ -5,7 +5,6 @@ $(function () {
         dataType:"JSON",
         async:false,
         success:function(data){
-            alert("成功")
             Kunyi.Offices = data;
         },
         error:function(){
