@@ -1,4 +1,19 @@
-Kunyi.Doctors = [{
+$(function () {
+    $.ajax({
+        type:"POST",
+        url:"Offices/Doctors",
+        dataType:"JSON",
+        async:false,
+        success:function(data){
+            Kunyi.Doctors = data;
+        },
+        error:function(){
+            //alert("失败")
+        }
+    });
+})
+
+/*Kunyi.Doctors = [{
     Char: "A",
     Doctors: [{
         DID: 463,
@@ -10741,4 +10756,4 @@ Kunyi.Doctors = [{
         Position: "副所长",
         DeptCode: "144"
     }]
-}];
+}];*/
