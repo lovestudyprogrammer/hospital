@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hospital.mapper.DepartmentMapper">
     <resultMap id="OfficesResultMap" type="com.hospital.pojo.OfficesPOJO">
-        <result column="depId" jdbcType="VARCHAR" property="DepID"/>
-        <result column="depName" jdbcType="VARCHAR" property="DepName"/>
-        <collection property="Offices" ofType="com.hospital.pojo.Department">
+        <result column="depId" jdbcType="VARCHAR" property="depID"/>
+        <result column="depName" jdbcType="VARCHAR" property="depName"/>
+        <collection property="offices" ofType="com.hospital.pojo.Department">
             <id column="oId" jdbcType="INTEGER" property="OID"/>
             <result column="oName" jdbcType="VARCHAR" property="OName"/>
             <result column="detail" jdbcType="VARCHAR" property="detail"/>
@@ -19,8 +19,9 @@
     </sql>
     <select id="selectAll" resultMap="OfficesResultMap">
         SELECT c.depId,c.depName,k.oId,k.oName,k.detail
-        from center c,keshi k
-        where c.depId=k.depId
+        from center c,
+             keshi k
+        where c.depId = k.depId
     </select>
 
 </mapper>
