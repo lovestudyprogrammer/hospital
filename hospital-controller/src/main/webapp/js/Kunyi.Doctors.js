@@ -8,7 +8,7 @@ $(function () {
             Kunyi.Doctors = data;
         },
         error:function(){
-            //alert("失败")
+            alert("失败")
         }
     });
 })
