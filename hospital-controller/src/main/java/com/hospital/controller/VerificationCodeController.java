@@ -76,7 +76,7 @@ public class VerificationCodeController {
                 return output;
             }
             output.setStatus(ConstCommons.ERROR);
-            output.setInfo("登录失败");
+            output.setInfo("身份证号或密码错误请重新输入！");
             return output;
         }
         //校验验证码是否正确
