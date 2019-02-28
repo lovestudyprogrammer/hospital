@@ -29,3 +29,7 @@ $(function () {
         }
     });
 });
+function showDetail(id){
+    departmentId=id;
+    window.location.href="../keshimx.html";
+}

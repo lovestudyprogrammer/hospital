@@ -289,18 +289,26 @@ $(function(){
         $.getScript("js/Kunyi.Offices.js",function(){
             $QMSubList=$("#QMOffices");
             var strTemp="";
+            $partList=$("#partList");
+            var strPart="";
             $(Kunyi.Offices).each(function(i){
                 strTemp+="<div class='item'><h5>"+this.DepName+"</h5>";
+                strPart+="<div class='part01' id='Department"+this.DepID+"'><div class='partTitle'><div class='left'>"+this.DepName+
+                    "</div><div class='right'><a class='green' href=''>出诊安排</a></div></div><ul>";
                 $(this.Offices).each(function(j){
                     if(j==0){
                         strTemp+="<a href='Office-"+this.OID+".html' class='first' target='_blank'>"+this.OName+"</a>";
                     }else{
                         strTemp+="<a href='Office-"+this.OID+".html' target='_blank'>"+this.OName+"</a>";
                     }
+                    strPart+="<li><h3>"+this.OName+"</h3><p>"+this.detail.toString().substring(0,55)+"...</p><div><a class='coffee' href='javascript:;' onclick='showDetail("+this.OID+")'>查看详细</a>" +
+                        "<a class='green' href=''>科室医生</a></div></li>";
                 });
                 strTemp+="<div class='clear'></div></div>";
+                strPart+="</ul><div class='clear'></div></div>";
             });
             $QMSubList.append(strTemp);
+            $partList.append(strPart);
 
             if($("#ddlDepartment").length>0){
                 $("#ddlDepartment").change(function(e) {

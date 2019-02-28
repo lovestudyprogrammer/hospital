@@ -79,7 +79,15 @@ $(function () {
             $("html,body").stop().animate({scrollTop: ($("#AreaDuty").offset().top - 60) + "px"}, 888, "easeOutQuint");
         }
     });
-
+    $.getScript("js/Kunyi.Offices.js",function() {
+        $(Kunyi.Offices).each(function (i) {
+            $(this.Offices).each(function (j) {
+                if (departmentId==this.OID) {
+                    $("#departmentName").append(this.OName);
+                }
+            });
+        });
+    });
 });
 $__W.resize(function () {
     $(".doctorsBase .contents ul").removeAttr("style").data("num", "0");
