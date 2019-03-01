@@ -301,8 +301,8 @@ $(function(){
                     }else{
                         strTemp+="<a href='Office-"+this.OID+".html' target='_blank'>"+this.OName+"</a>";
                     }
-                    strPart+="<li><h3>"+this.OName+"</h3><p>"+this.detail.toString().substring(0,55)+"...</p><div><a class='coffee' href='javascript:;' onclick='showDetail("+this.OID+")'>查看详细</a>" +
-                        "<a class='green' href=''>科室医生</a></div></li>";
+                    strPart+="<li><h3>"+this.OName+"</h3><p>"+this.detail.toString().substring(0,55)+"...</p><div><a class='coffee' href='Office-"+this.OID+".html'>查看详细</a>" +
+                        "<a class='green' href='ExpertInfo-"+this.OID+".html'>科室医生</a></div></li>";
                 });
                 strTemp+="<div class='clear'></div></div>";
                 strPart+="</ul><div class='clear'></div></div>";
