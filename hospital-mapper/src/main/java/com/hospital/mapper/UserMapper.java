@@ -10,4 +10,6 @@ public interface UserMapper {
     int insert(@Param("vo") User user);
     User selectById(String tbId);
     User selectByCardIdAndPassword(@Param("cardId") String cardId, @Param("password") String password);
+    String selectPassword(String tbId);
+    int updatePassword(@Param("password") String password, @Param("id") String id);
 }

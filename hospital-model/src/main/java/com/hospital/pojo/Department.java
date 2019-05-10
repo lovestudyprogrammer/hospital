@@ -11,6 +11,7 @@ public class Department {
     private String detail;
     @JSONField(name = "DepID")
     private String depID;
+    private String location;
 
     public Integer getOID() {
         return OID;
@@ -42,6 +43,14 @@ public class Department {
 
     public void setDepID(String depID) {
         this.depID = depID;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
 

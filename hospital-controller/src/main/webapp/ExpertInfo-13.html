@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>心血管外科 - 科室导航 - 就诊指南 - 河南省人民医院</title>
+    <meta name="Keywords" content="河南省人民医院,人民医院,省医,河南人民医院,咨询, 留言, 河南医院, 寻医问药"/>
+    <meta name="Description"
+          content="河南省人民医院位于河南省郑州市，建院于1906年，是一家三级甲等综合医院。医院秉承“患者至上，员工为本”的服务理念，弘扬“仁爱、博学、严谨、卓越”的医院精神，坚持“人民医院为人民”的办院宗旨，造就了一支业务精湛、医德高尚、纪律严明、作风过硬的职工队伍，树立了社会满意、患者信赖的良好形象。先后获得全国精神文明建设先进单位、全国文明单位、全国卫生系统先进集体、全国医院文化建设先进单位等多项荣誉称号。"/>
+    <meta name="robots" content="All"/>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="css/secondary.css" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/Kunyi.Respond.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js/KunyiHTML5.min.js"></script>
+    <script type="text/javascript" src="js/Kunyilibrary.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="js/Kunyi.Init.js"></script>
+<div id="page1"></div>
+<script>
+    $("#page1").load("Page_1.html");
+</script>
+<section class="BaseMark">
+    <div class="bread">您所在的位置<span><a href="index.html">首页</a>><a href="jiuzhen.html">就诊指南</a>><a
+            href="keshi.html">科室导航</a>><a href="Office-13.html">心血管外科</a>>专家介绍</span></div>
+    <div class="baseLeft">
+        <div class="partLeft">
+            <div class="title partTitle"><a href="Office-13.html">心血管外科</a></div>
+            <div class="newsMenu depmMenu">
+                <ul>
+                    <li class="active"><a href="ExpertInfo-13.html"><em>专家介绍</em></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page3"></div>
+        <script>
+            $("#page3").load("Page_3.html");
+        </script>
+    </div>
+    <div class="partRight">
+        <div class="title01">专家介绍</div>
+        <div class="Expert">
+            <ul id="doctorDesc">
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</section>
+<div class="BottomHidden"></div>
+<div id="page2"></div>
+<script>
+    $("#page2").load("Page_2.html");
+</script>
+<div id="Footer_CodeDiv">
+    <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fafd2ae44e23648da4e8a81a7b1349be4' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script type="text/javascript" src="js/Kunyi.Common.js"></script>
+<script type="text/javascript" src="js/Kunyi.Secondary.js"></script>
+<script>
+    $(function () {
+        $.getScript("js/Kunyi.Doctors.js",function(){
+            $doctorDesc=$("#doctorDesc");
+            var str="";
+            $(Kunyi.Doctors).each(function(){
+                $(this.Doctors).each(function () {
+                    if(this.OfficeID=="13"){
+                        str+="<li><a><img class='load' src='"+this.DImage+"' width='120' height='162'/></a><a class='ATitle'>"+
+                        this.DName+"</a><h4>"+this.Position+"</h4><div>"+
+                            "<a id='"+this.DID+"' href='javascript:;' onclick='getId(this)' target='_blank' class='green' style='left: 135px'>预约</a></div></li>";
+                    }
+                });
+            });
+            $doctorDesc.append(str);
+        });
+    })
+    function getId(obj) {
+        window.open("ChooseDoctor.html?DID="+obj.id);
+        //window.location.href="ChooseDoctor.html?DID="+obj.id;
+    }
+</script>
+</body>
+</html>

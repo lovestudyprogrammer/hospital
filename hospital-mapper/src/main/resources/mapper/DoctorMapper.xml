@@ -16,4 +16,12 @@
         where d.oId = k.oId
     </select>
 
+    <select id="selectByDoctorId" resultType="java.lang.String" parameterType="java.lang.String">
+        select dName from doctor where dId=#{id}
+    </select>
+    
+    <select id="selectById" resultMap="DoctorResultMap" parameterType="java.lang.Integer">
+        select dName, oId, position from doctor where dId=#{id}
+    </select>
+
 </mapper>

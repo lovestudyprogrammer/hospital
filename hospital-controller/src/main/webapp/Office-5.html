@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>呼吸内科 - 科室导航 - 就诊指南 - 河南省人民医院</title>
+    <meta name="Keywords" content="河南省人民医院,人民医院,省医,河南人民医院,咨询, 留言, 河南医院, 寻医问药"/>
+    <meta name="Description"
+          content="河南省人民医院位于河南省郑州市，建院于1906年，是一家三级甲等综合医院。医院秉承“患者至上，员工为本”的服务理念，弘扬“仁爱、博学、严谨、卓越”的医院精神，坚持“人民医院为人民”的办院宗旨，造就了一支业务精湛、医德高尚、纪律严明、作风过硬的职工队伍，树立了社会满意、患者信赖的良好形象。先后获得全国精神文明建设先进单位、全国文明单位、全国卫生系统先进集体、全国医院文化建设先进单位等多项荣誉称号。"/>
+    <meta name="robots" content="All"/>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="css/secondary.css" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/Kunyi.Respond.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js/KunyiHTML5.min.js"></script>
+    <script type="text/javascript" src="js/Kunyilibrary.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="js/Kunyi.Init.js"></script>
+<div id="page1"></div>
+<script>
+    $("#page1").load("Page_1.html");
+</script>
+<section class="BaseMark PartBanner">
+    <div class="bannerLeft"><img class='load' data-original='images/pic_temp.jpg'></div>
+    <div class="bannerRight">
+        <div class="righttitle"><h1>呼吸内科</h1>
+            <div class="btns"><a href="javascript:;"><img class="load" data-original="images/part_tel.png" width="46"
+                                                            height="45" title="其他科室电话" alt="其他科室电话"/><em>其他科室电话</em></a><a
+                    href="javascript:;" class="last"><img class="load" data-original="images/part_map.png"
+                                                               width="46" height="45" title="科室地图查看" alt="科室地图查看"/><em>科室地图查看</em></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="rightbtn"><a class="blue" href="keshi.html">返回科室导航</a>
+        </div>
+        <div class="righttel"><h2 id="H2Tel"></h2>
+            <h3>本科室电话 0377-5525</h3></div>
+    </div>
+    <div class="clear"></div>
+</section>
+<section class="BaseMark PartIntro">
+    <div class="introLeft">
+        <div class="lefttitle">科室栏目<span>Column sections</span></div>
+        <ul>
+            <li id="LIExpertInfo2"><a href="ExpertInfo-5.html">专家介绍</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="introRight">
+        <div class="left"><img class="load" data-original="images/ksjj-1.gif" width="72" height="105"/>
+            <h3>科室简介</h3><h4>INTRODUCTION</h4></div>
+        <div class="right"><h1 id="H1Type">普通专科</h1>
+            <p id="PDescription"></p>
+        </div>
+    </div>
+    <div class="clear"></div>
+</section>
+<section id="AreaDoctors" class="BaseMark doctorsBase partDoctor">
+    <div class="toolsPart">
+        <div class="title">专家介绍<span>Expert Introduction</span></div>
+        <div class="tools"><a href="ExpertInfo-5.html" class="Bmore">MORE 》》</a><a href="javascript:;"
+                                                                                     class="Aprev"></a><a
+                href="javascript:;" class="Anext"></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="contents">
+        <ul id="doctorDesc" data-num="0">
+        </ul>
+        <div class="hackR"></div>
+        <div class="hackL"></div>
+    </div>
+</section>
+<div class="BottomHidden"></div>
+<div id="page2"></div>
+<script>
+    $("#page2").load("Page_2.html");
+</script>
+<div id="Footer_CodeDiv">
+    <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fafd2ae44e23648da4e8a81a7b1349be4' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script type="text/javascript" src="js/Kunyi.Common.js"></script>
+<script type="text/javascript" src="js/Kunyi.Secondary.js"></script>
+<script type="text/javascript" src="js/Kunyi.Office.js"></script>
+<script>
+    $(function () {
+        $.getScript("js/Kunyi.Offices.js",function(){
+            $(Kunyi.Offices).each(function(){
+                $(this.Offices).each(function () {
+                    if(this.OName=="呼吸内科"){
+                        $("#PDescription").append(this.detail);
+                    }
+                });
+            });
+        });
+        $.getScript("js/Kunyi.Doctors.js",function(){
+            $doctorDesc=$("#doctorDesc");
+            var str="";
+            $(Kunyi.Doctors).each(function(){
+                $(this.Doctors).each(function () {
+                    if(this.OfficeID=="5"){
+                        str+="<li><p class='img'><img class='loading' src='"+this.DImage+"' width='120' height='162'/></p><p class='name'>"+
+                            this.DName+"</p><p class='office'>"+this.OfficeName+"</p><p class='post'>"+this.Position+"</p><a href='ChooseDoctor.html?DID="+this.DID+"' target='_blank' class='btn date' style='left: 85px'>"+
+                            "预约</a></li>";
+                    }
+                });
+            });
+            $doctorDesc.append(str);
+        });
+    })
+</script>
+</body>
+</html>

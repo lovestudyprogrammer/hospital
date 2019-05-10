@@ -75,7 +75,7 @@ header .searchBase .itemBase ul li:hover{ background:#eaeaea;}
 header .searchBase .boxsub{ width:110px; height:52px; position:absolute; top:-2px; right:-2px; background:#6bcbca; border:none; color:#fff; cursor:pointer; font-size:14px;}
 header .searchBase .boxsub:hover{background:#ff7544;}
 header .divType{ background:url(../images/ico_005.jpg) 84px center  no-repeat;text-indent:20px; cursor:pointer;}
-header .reglogin{width:180px;height:40px;float:left;padding-left:38px}
+header .reglogin{width:180px;height:40px;float:right;padding-left:38px}
 header .reglogin a{color:#6bcbca}
 
 nav{ width:100%; height:45px; line-height:45px; position:relative;}
@@ -135,7 +135,7 @@ nav .quickMenus li.first:hover .firstA{ background:#ff7544 url(../images/ico_016
 nav .quickMenus li.first:hover .firstA em{border-bottom:1px solid #ff7544;}
 nav .quickMenus li.first:hover .firstA span{width:44px; height:44px; top:8px; left:20px;}
 
-nav .nav{ padding-top:5px; position:absolute; top:0px; right:0px; background:url(../images/Yellowline.jpg) repeat-x; padding-left:5px; }
+nav .nav{ padding-top:5px; position:absolute; top:0px; left:21%; background:url(../images/Yellowline.jpg) repeat-x; padding-left:5px; }
 nav .nav .PMenu{ height:40px;  line-height:40px; float:left; font-size:16px; overflow:visible; position:relative; margin:0px 1px;transition:all .28s linear;-moz-transition:all .28s linear;-webkit-transition:all .28s linear;-o-transition:all .28s linear;}
 nav .nav .PMenu img.animated{-moz-opacity:0;opacity:0;filter:alpha(opacity=0);-webkit-opacity:0; position:absolute; bottom:-8px; left:50%; margin-left:-8px;}
 nav .nav .PAMenu{ display:block;padding:0px 16px; text-align:center;color:#FFF;}

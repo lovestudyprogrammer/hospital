@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script language="javascript" type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<body onload="init()">
+</body>
+<script type="text/javascript">
+    function init() {
+        $.ajax({
+            type:"POST",
+            url:"DoPostBack/LoginOut",
+            success:function(data){
+            },
+            error:function(){
+                alert("失败");
+            }
+        });
+    }
+</script>
+<a onclick=""/>
+</html>

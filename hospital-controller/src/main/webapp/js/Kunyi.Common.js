@@ -294,7 +294,7 @@ $(function(){
             $(Kunyi.Offices).each(function(i){
                 strTemp+="<div class='item'><h5>"+this.DepName+"</h5>";
                 strPart+="<div class='part01' id='Department"+this.DepID+"'><div class='partTitle'><div class='left'>"+this.DepName+
-                    "</div><div class='right'><a class='green' href=''>出诊安排</a></div></div><ul>";
+                    "</div></div><ul>";
                 $(this.Offices).each(function(j){
                     if(j==0){
                         strTemp+="<a href='Office-"+this.OID+".html' class='first' target='_blank'>"+this.OName+"</a>";
@@ -385,3 +385,14 @@ $__W.load(function(){
         }
     });
 });
+function exit() {
+    $.ajax({
+        type:"POST",
+        url:"DoPostBack/LoginOut",
+        success:function(data){
+            window.location.href=data;
+        },
+        error:function(){
+        }
+    });
+}

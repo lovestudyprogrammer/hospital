@@ -71,5 +71,14 @@
         <property name="contentType" value="text/html;charset=UTF-8"/>
         <property name="order" value="0"/>  <!--配置优先等级，越小优先级越高-->
     </bean>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/MemberSafe.html"/>
+            <mvc:mapping path="/MemberReg.html"/>
+            <mvc:mapping path="/ChooseDoctor.html"/>
+            <bean class="com.hospital.controller.UserInterceptor"></bean>
+            </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

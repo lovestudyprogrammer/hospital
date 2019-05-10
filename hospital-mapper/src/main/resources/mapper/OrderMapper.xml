@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hospital.mapper.OrderMapper">
+    <resultMap id="ordersMap" type="com.hospital.pojo.Orders">
+        <id column="oId" jdbcType="VARCHAR" property="OId"/>
+        <result column="u_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="u_cardID" jdbcType="VARCHAR" property="userCardId"/>
+        <result column="date" jdbcType="VARCHAR" property="date"/>
+        <result column="dId" jdbcType="INTEGER" property="DId"/>
+        <result column="dName" jdbcType="VARCHAR" property="DName"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+    </resultMap>
+    <select id="selectByOrderId" resultType="string" parameterType="string">
+        select oId
+        from orders
+        where oId = #{id}
+    </select>
+
+    <insert id="generateOrder">
+        insert into orders(
+        oId
+        <if test="vo.userName != null">
+            ,u_name
+        </if>
+        <if test="vo.userCardId != null">
+            ,u_cardID
+        </if>
+        <if test="vo.date != null">
+            ,date
+        </if>
+        <if test="vo.DId != null">
+            ,dId
+        </if>
+        <if test="vo.DName != null">
+            ,dName
+        </if>
+        <if test="vo.state != null">
+            ,state
+        </if>
+        ) values (
+        #{vo.OId}
+        <if test="vo.userName != null">
+            ,#{vo.userName}
+        </if>
+        <if test="vo.userCardId != null">
+            ,#{vo.userCardId}
+        </if>
+        <if test="vo.date != null">
+            ,#{vo.date}
+        </if>
+        <if test="vo.DId != null">
+            ,#{vo.DId}
+        </if>
+        <if test="vo.DName != null">
+            ,#{vo.DName}
+        </if>
+        <if test="vo.state != null">
+            ,#{vo.state}
+        </if>
+        )
+    </insert>
+
+    <select id="selectByNameAndCardId" resultMap="ordersMap" parameterType="string">
+        select oId,u_name,u_cardID,date,dId,dName,state from orders where u_name = #{userName} and u_cardID = #{cardId} order by date DESC
+    </select>
+
+    <update id="updateById">
+        update orders set state = 0 where oId = #{id}
+    </update>
+
+    <update id="updateOrderState">
+        update orders set state = 2 where oId = #{id}
+    </update>
+
+</mapper>

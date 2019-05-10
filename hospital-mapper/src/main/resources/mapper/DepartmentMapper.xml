@@ -10,18 +10,19 @@
             <result column="detail" jdbcType="VARCHAR" property="detail"/>
         </collection>
     </resultMap>
-    <sql id="columnsSql">
-        OID,
-        OName,
-        detail,
-        DepName,
-        DepId
-    </sql>
+    <resultMap id="resultMap" type="com.hospital.pojo.Department">
+        <result column="oName" jdbcType="VARCHAR" property="OName"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+    </resultMap>
     <select id="selectAll" resultMap="OfficesResultMap">
         SELECT c.depId,c.depName,k.oId,k.oName,k.detail
         from center c,
              keshi k
         where c.depId = k.depId
+    </select>
+
+    <select id="selectById" resultMap="resultMap" parameterType="java.lang.Integer">
+        select oName,location from keshi where oId=#{id}
     </select>
 
 </mapper>

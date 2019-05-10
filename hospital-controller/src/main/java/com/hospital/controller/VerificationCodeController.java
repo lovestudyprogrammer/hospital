@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -33,7 +34,7 @@ public class VerificationCodeController {
     @Resource
     private IValidFormService validFormService;
 
-    private static String sRand;
+    public static String sRand;
 
     @RequestMapping(value = "/DoRegister")
     @ResponseBody
@@ -66,11 +67,12 @@ public class VerificationCodeController {
 
     @RequestMapping("/DoLogin")
     @ResponseBody
-    public OutputCommons login(User user) throws Exception {
+    public OutputCommons login(User user, HttpSession session) throws Exception {
         OutputCommons output = new OutputCommons();
         if(sRand.equalsIgnoreCase(user.getTbCode())){
             User checkUser = validFormService.userLogin(user);
             if(checkUser != null){
+                session.setAttribute("user",checkUser);
                 output.setStatus(ConstCommons.SUCCESS);
                 output.setInfo("");
                 return output;

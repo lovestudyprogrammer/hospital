@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>我的预约 - 预约挂号 - 河南省人民医院</title>
+    <meta name="robots" content="All"/>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="css/secondary.css" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/Kunyi.Respond.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js/KunyiHTML5.min.js"></script>
+    <script type="text/javascript" src="js/Kunyilibrary.js"></script>
+    <script type="text/javascript" src="js/Kunyi.Validform.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="js/Kunyi.Init.js"></script>
+<div id="page1"></div>
+<script>
+    $("#page1").load("Page_1.html");
+</script>
+<section class="BaseMark">
+    <div class="bread">您所在的位置<span><a href="index.html">首页</a>><a href="ArticleList-54.html">就诊指南</a>><a
+            href="ChooseOffice.html">预约挂号</a>>我的预约</span></div>
+    <div class="baseLeft">
+        <div class="title title05_52">就诊指南</div>
+        <div class="newsMenu">
+            <ul>
+                <li class="first"><a href="jiuzhen.html" title="就诊流程"><em>就诊流程</em></a></li>
+                <li><a href="keshi.html" title="科室导航"><em>科室导航</em></a></li>
+                <!--<li><a href="chuzhen.html" title="出诊安排"><em>出诊安排</em></a></li>-->
+                <!--<li class="second"><a href="chuzhen.html" title="出诊安排">出诊安排</a></li>-->
+                <!--<li class="second"><a href="NoticeList-4.html" title="停诊信息">停诊信息</a></li>
+                <li><a href="ArticleList-56.html" title="住院指南"><em>住院指南</em></a></li>
+                <li><a href="Article-57.html" title="来院路线"><em>来院路线</em></a></li>
+                <li><a href="ArticleList-10.html" title="医保服务"><em>医保服务</em></a></li>
+                <li><a href="Telephone.html" title="电话查询"><em>电话查询</em></a></li>
+                <li><a href="Article-65.html" title="信息查询"><em>信息查询</em></a></li>
+                <li class="second"><a href="Article-65.html" title="医疗服务价格查询">医疗服务价格查询</a></li>
+                <li class="second"><a href="CheckupsInfo.html" title="检验结果查询">检验结果查询</a></li>-->
+                <li><a href="ChooseOffice.html" title="预约挂号"><em>预约挂号</em></a></li>
+                <li class="second block"><a href="ChooseOffice.html" title="科室列表">科室列表</a></li>
+                <li class="second block"><a href="MemberSafe.html" title="账户安全">账户安全</a></li>
+                <li class="second block"><a class="on" href="MemberReg.html" title="我的预约">我的预约</a></li>
+                <!--<li><a href="Distribution.html" title="省医地图"><em>省医地图</em></a></li>-->
+            </ul>
+        </div>
+        <div id="page3"></div>
+        <script>
+            $("#page3").load("Page_3.html");
+        </script>
+    </div>
+    <div id="baseRight" class="baseRight">
+        <div class="title01">我的预约
+            <div class="Tab"><em>选科室</em><em>选医生</em><em class="active">预约</em></div>
+        </div>
+        <!--<div id="dOrders">
+        </div>-->
+    </div>
+    <div class="clear"></div>
+</section>
+<div class="BottomHidden"></div>
+<div id="page2"></div>
+<script>
+    $("#page2").load("Page_2.html");
+</script>
+<div id="Footer_CodeDiv">
+    <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fafd2ae44e23648da4e8a81a7b1349be4' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script type="text/javascript" src="js/Kunyi.Common.js"></script>
+<script type="text/javascript" src="js/Kunyi.Secondary.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            type:"POST",
+            url:"show/orders",
+            dataType:"JSON",
+            success:function(data){
+                $dOrders=$("#baseRight");
+                var str="";
+                $(data).each(function () {
+                    str+="<div class='dOrders'><div class='item01'><h5>"+this.doctor.DName+"</h5><p><em>"+this.department.OName+" &nbsp;</em></p><span>"+this.doctor.Position+
+                        "</span></div><div class='item02'><em>就诊时间</em><br><span>上午</span><p>"+this.orders.date+"</p></div><div class='item03'><em>就诊位置</em><p>"+
+                        this.department.location+"</p><span>"+this.doctor.Position+"</span></div><div class='item04'><em>预约状态</em><em class='status'>";
+                    if(this.orders.state == 1){
+                        str+="正常</em><a href='javascript:;' onclick=\"cancel('"+this.orders.oId+"')\">取消预约</a></div><div class='clear'></div></div>";
+                    }else if(this.orders.state == 0){
+                        str+="已取消</em></div><div class='clear'></div></div>";
+                    }else{
+                        str+="已过期</em></div><div class='clear'></div></div>";
+                    }
+                })
+                $dOrders.append(str);
+            },
+            error:function(){
+                alert("失败")
+            }
+        });
+    })
+    function cancel(id){
+        if(confirm('确定要取消吗？')){
+            $.ajax({
+                type:"POST",
+                url:"show/cancel",
+                data:{id:id},
+                success:function(){
+                    location.reload();
+                },
+                error:function(){
+                    alert("失败")
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>

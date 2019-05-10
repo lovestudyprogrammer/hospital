@@ -28,6 +28,10 @@
         from user where tbId=#{tbId}
     </select>
 
+    <select id="selectPassword" resultType="string" parameterType="string">
+        select tbPassword from user where tbId=#{tbId}
+    </select>
+
     <select id="selectByCardIdAndPassword" parameterType="string" resultType="com.hospital.pojo.User">
         select
         <include refid="columnsSql"/>
@@ -83,5 +87,9 @@
         </if>
         )
     </insert>
+
+    <update id="updatePassword">
+        update user set tbPassword=#{password}  where tbId=#{id}
+    </update>
 
 </mapper>

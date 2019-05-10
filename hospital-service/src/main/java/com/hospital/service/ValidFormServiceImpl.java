@@ -42,4 +42,13 @@ public class ValidFormServiceImpl implements IValidFormService {
         User checkUser = userMapper.selectByCardIdAndPassword(user.getTbCardID(), user.getTbPassword());
         return checkUser;
     }
+
+    public int changePassword(String tbOPassword, String tbPassword, User user) throws Exception {
+        int resultNumber=0;
+        String password = userMapper.selectPassword(user.getTbId());
+        if(!password.equals(EncryptUtil.encrypt(tbOPassword, ConstCommons.DESKEY)))
+            return resultNumber;
+        resultNumber = userMapper.updatePassword(EncryptUtil.encrypt(tbPassword, ConstCommons.DESKEY), user.getTbId());
+        return resultNumber;
+    }
 }

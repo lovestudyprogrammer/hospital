@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface DoctorMapper {
     List<Doctor> selectAll();
+    String selectByDoctorId(String id);
+    Doctor selectById(Integer id);
 }
