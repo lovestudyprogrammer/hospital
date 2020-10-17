@@ -103,12 +103,12 @@
         XMLHttp.onreadystatechange = function () {
             if (XMLHttp.readyState == 4) {
                 //改变验证码图片
-                $("#IMGCheckcode").attr("src", ("/Validation/getImage?" + new Date()));
+                $("#IMGCheckcode").attr("src", ("Validation/getImage?" + new Date()));
             }
         };
         //将请求发送出去
         //加上 new Date()防止浏览器缓存，不重新发送请求
-        XMLHttp.open("GET", "/Validation/getImage?" + new Date(), true);
+        XMLHttp.open("GET", "Validation/getImage?" + new Date(), true);
         XMLHttp.send(null);
     }
 </script>
