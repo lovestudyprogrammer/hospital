@@ -11,11 +11,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectResources">
-    <resource url="http://code.alibabatech.com/schema/dubbo/dubbo.xsd" location="D:/tools/frame/dubbo/dubbo.xsd" />
-    <resource url="http://www.apache.org/licenses/LICENSE-2.0" location="D:/tools/frame/Mybatis/约束/dtd/mybatis-3-config.dtd" />
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
